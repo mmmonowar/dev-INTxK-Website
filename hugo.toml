@@ -1,4 +1,4 @@
-baseURL = 'https://tpf.intxk.com/'
+baseURL = 'https://the-polymod-framework.intxk.com/'
 relativeURLs = true
 canonifyURLs = false
 title = "The Polymod Framework"
