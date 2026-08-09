@@ -1,4 +1,6 @@
 baseURL = 'https://tpf.intxk.com/'
+relativeURLs = true
+canonifyURLs = false
 title = "The Polymod Framework"
 locale = "en-US"
 theme = []
