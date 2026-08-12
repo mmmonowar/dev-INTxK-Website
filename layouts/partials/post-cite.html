@@ -1,0 +1,91 @@
+{{ $node := .Params.node }}
+{{ $citeAuthor := default .Site.Params.author .Params.cite_author }}
+{{ $title := .Title }}
+{{ $site := default .Site.Title .Site.Params.citation.site_name }}
+{{ $url := printf "%s%s" (strings.TrimSuffix "/" .Site.BaseURL) .RelPermalink }}
+{{ $access := now }}
+{{ $apaAuthor := default "" .Site.Params.citation.apa_author }}
+{{ if and $node (not $apaAuthor) }}
+    {{ $parts := split $citeAuthor " " }}
+    {{ $initials := "" }}
+    {{ range $i, $p := $parts }}
+        {{ if lt $i (sub (len $parts) 1) }}{{ $initials = printf "%s%s. " $initials (substr $p 0 1) }}{{ end }}
+    {{ end }}
+    {{ $apaAuthor = printf "%s, %s" (index $parts (sub (len $parts) 1)) (strings.TrimSuffix " " $initials) }}
+{{ end }}
+{{ if and $node $title $apaAuthor }}
+{{ $date := time (substr $node 0 10) }}
+{{ $key := default "" .Params.cite_key }}
+{{ if not $key }}
+    {{ $parts := split $citeAuthor " " }}
+    {{ $key = printf "%s%s%s" (lower (index $parts (sub (len $parts) 1))) ($date.Format "2006") (lower (replaceRE "[^a-zA-Z0-9]" "" (index (split $title " ") 0))) }}
+{{ end }}
+{{ $month := $date.Format "Jan" | lower }}
+{{ $apa := printf "%s (%s). %s. %s. Retrieved %s, from %s" $apaAuthor ($date.Format "2006, January 2") $title $site ($access.Format "January 2, 2006") $url }}
+{{ $mla := printf "%s. \"%s.\" %s, %s, %s. Accessed %s." $citeAuthor $title $site ($date.Format "2 Jan. 2006") $url ($access.Format "2 Jan. 2006") }}
+{{ $bib := printf "@misc{%s,\n  author = {%s},\n  title = {%s},\n  year = {%s},\n  month = %s,\n  day = %s,\n  note = {Accessed: %s},\n  url = {%s}\n}" $key $citeAuthor $title ($date.Format "2006") $month ($date.Format "2") ($access.Format "2006-01-02") $url }}
+{{ if ne (lower (string (.Params.cite | default true))) "false" }}
+<aside class="post-cite">
+    <h3 class="post-cite-title">// Cite this post</h3>
+    <div class="cite-row">
+        <div class="cite-head">
+            <span class="cite-label">APA</span>
+            <button type="button" class="cite-copy" data-cite-target="cite-apa">copy</button>
+        </div>
+        <pre id="cite-apa" class="cite-block">{{ $apa }}</pre>
+    </div>
+    <div class="cite-row">
+        <div class="cite-head">
+            <span class="cite-label">MLA</span>
+            <button type="button" class="cite-copy" data-cite-target="cite-mla">copy</button>
+        </div>
+        <pre id="cite-mla" class="cite-block">{{ $mla }}</pre>
+    </div>
+    <div class="cite-row">
+        <div class="cite-head">
+            <span class="cite-label">BibTeX</span>
+            <button type="button" class="cite-copy" data-cite-target="cite-bib">copy</button>
+        </div>
+        <pre id="cite-bib" class="cite-block">{{ $bib }}</pre>
+    </div>
+</aside>
+<script>
+(function () {
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+    }
+    var buttons = document.querySelectorAll('.cite-copy');
+    for (var i = 0; i < buttons.length; i++) {
+        (function (btn) {
+            btn.addEventListener('click', function () {
+                var pre = document.getElementById(btn.getAttribute('data-cite-target'));
+                var text = pre.textContent.replace(/\s+$/, '');
+                var done = function () {
+                    var orig = btn.textContent;
+                    btn.textContent = 'copied';
+                    btn.classList.add('is-copied');
+                    setTimeout(function () {
+                        btn.textContent = orig;
+                        btn.classList.remove('is-copied');
+                    }, 1500);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+                } else {
+                    fallbackCopy(text);
+                    done();
+                }
+            });
+        })(buttons[i]);
+    }
+})();
+</script>
+{{ end }}
+{{ end }}

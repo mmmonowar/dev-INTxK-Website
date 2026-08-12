@@ -36,3 +36,8 @@ disableKinds = []
           \\ /
            *
   """
+
+[params.citation]
+  # "Cite this post" metadata (editable). Empty values auto-derive from site params.
+  apa_author = ""   # APA-formatted author, e.g. "Monowar, M. M." (auto-derived from [params] author when empty)
+  site_name = ""    # Site name shown in citations (defaults to `title`)

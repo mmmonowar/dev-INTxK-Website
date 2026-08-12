@@ -355,6 +355,62 @@ a:hover { opacity: 0.8; }
 .post-license-badge:hover { border-color: var(--poly-crimson); opacity: 1; }
 .post-license-text { max-width: 52ch; }
 
+/* ===== Cite this post ===== */
+.post-cite {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--poly-grid);
+}
+.post-cite-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--poly-ink3);
+  font-family: var(--font-mono);
+}
+.cite-row { margin-bottom: 0.75rem; }
+.cite-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+.cite-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--poly-crimson);
+  text-transform: uppercase;
+}
+.cite-copy {
+  padding: 0.1em 0.7em;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--poly-ink2);
+  background: var(--poly-dim);
+  border: 1px solid var(--poly-grid);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.cite-copy:hover { border-color: var(--poly-crimson); color: var(--poly-ink1); }
+.cite-copy.is-copied { color: var(--poly-crimson); border-color: var(--poly-crimson); }
+.cite-block {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--poly-dim);
+  border: 1px solid var(--poly-grid);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--poly-ink2);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 /* Markdown Table Standardization for CLI Aesthetic */
 table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; }
 th, td { border: 1px solid var(--poly-grid); padding: 0.75rem 1rem; text-align: left; }
