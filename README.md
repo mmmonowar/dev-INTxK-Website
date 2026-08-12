@@ -125,6 +125,9 @@ Your post body in standard Markdown goes here.
 | `summary` | no       | One-line description shown beneath the title on the posts page. |
 | `draft`   | no       | Set `draft: true` to keep the post unpublished. Remove the field to publish. |
 | `license` / `license_url` / `license_notice` | no | Per-post license override for the footer badge (name, link, notice). Omit to inherit the site default; set `license: ""` to hide the footer. |
+| `cite` | no | Set `cite: false` to hide the "Cite this post" box. |
+| `cite_author` | no | Full author name used in citations (for guest posts / different authors). Defaults to the site author. |
+| `cite_key` | no | Stable BibTeX key. Defaults to `lastnameYYYYfirstword-of-title`. |
 
 ### Body & attachments
 
@@ -205,6 +208,14 @@ Each post page shows its tag chips, linking back to the archive.
 
 ---
 
+## Citing posts
+
+Every post renders a **"Cite this post"** box with ready-made **APA 7**, **MLA 9**, and **BibTeX** citations and a copy button for each. Citations are generated from the post's `node` date, title, site author, and `baseURL`, so they stay correct automatically.
+
+Per-post front matter overrides: `cite: false` to hide the box, `cite_author` for a different author, `cite_key` for a stable BibTeX key.
+
+---
+
 ## Navigation & theme
 
 - A compact nav strip (`~ home posts`) appears at the top of every page; the active page is highlighted.
@@ -247,6 +258,8 @@ Site-wide settings live in `hugo.toml`:
 | `[params] cc_license_url` | Link for the post license badge.                |
 | `[params] cc_license_notice` | Default notice text under each post.          |
 | `[params] copyright_line` | Site footer copyright. Empty = the default `© <year> <author> | <company>` All Rights Reserved line. |
+| `[params.citation] apa_author` | APA-formatted author used in "Cite this post" (e.g. `"Monowar, M. M."`). Empty = auto-derived from `author`. |
+| `[params.citation] site_name` | Site name shown in citations. Empty = `title`. |
 | `[taxonomies] tag`     | Enables the tag system — leave as-is.            |
 
 `brand_mark` is a TOML literal string; backslashes inside it must be doubled (`\\`) or Hugo will reject the file.
