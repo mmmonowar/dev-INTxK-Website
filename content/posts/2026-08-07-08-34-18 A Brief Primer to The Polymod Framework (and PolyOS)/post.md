@@ -6,8 +6,6 @@ tags:
 summary: "This post briefly introduces readers to the Polymod Framework and PolyOS. I share how I discovered my passion for systematic work—a quality I believe is essential for entrepreneurs. I also share key use cases and features to introduce the methodology and its benefits. Finally, I make the case for why solopreneurs, as well as young and early-stage entrepreneurs, might benefit from trying the Polymod Framework and PolyOS."
 ---
 
-# A Brief Primer to the Polymod Framework (and PolyOS)
-
 When I first started in 2021, there was no framework. I was just writing about the topics I was interested in and ideating rapidly on different projects. 
 
 Frameworks such as Zettelkasten and the PARA Method fascinated me. And even though at the time, I was doing a lot of things, I did not have what I would call now a system.
