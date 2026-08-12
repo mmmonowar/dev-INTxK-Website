@@ -124,6 +124,7 @@ Your post body in standard Markdown goes here.
 | `tags`    | no       | YAML list. Automatically creates archive pages under `/tags/`. |
 | `summary` | no       | One-line description shown beneath the title on the posts page. |
 | `draft`   | no       | Set `draft: true` to keep the post unpublished. Remove the field to publish. |
+| `license` / `license_url` / `license_notice` | no | Per-post license override for the footer badge (name, link, notice). Omit to inherit the site default; set `license: ""` to hide the footer. |
 
 ### Body & attachments
 
@@ -242,6 +243,10 @@ Site-wide settings live in `hugo.toml`:
 | `[params] company`     | Company name.                                    |
 | `[params] subtitle_line1` / `subtitle_line2` | Hero taglines on the homepage.      |
 | `[params] brand_mark`  | ASCII brand mark rendered in the hero.           |
+| `[params] cc_license_name` | Default Creative Commons license name shown under each post. |
+| `[params] cc_license_url` | Link for the post license badge.                |
+| `[params] cc_license_notice` | Default notice text under each post.          |
+| `[params] copyright_line` | Site footer copyright. Empty = the default `© <year> <author> | <company>` All Rights Reserved line. |
 | `[taxonomies] tag`     | Enables the tag system — leave as-is.            |
 
 `brand_mark` is a TOML literal string; backslashes inside it must be doubled (`\\`) or Hugo will reject the file.

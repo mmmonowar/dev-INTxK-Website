@@ -330,6 +330,30 @@ a:hover { opacity: 0.8; }
 .post-summary { margin: 1rem 0 0; max-width: 60ch; color: var(--poly-ink2); font-style: italic; }
 .post-body { max-width: 65ch; }
 .post-back { margin: 0 0 1rem; font-size: 0.8rem; }
+.post-license {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--poly-grid);
+  font-size: 0.75rem;
+  color: var(--poly-ink3);
+}
+.post-license-badge {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--poly-crimson);
+  background: var(--poly-dim);
+  border: 1px solid var(--poly-grid);
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.post-license-badge:hover { border-color: var(--poly-crimson); opacity: 1; }
+.post-license-text { max-width: 52ch; }
 
 /* Markdown Table Standardization for CLI Aesthetic */
 table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; }

@@ -1,0 +1,11 @@
+{{ $name := default .Site.Params.cc_license_name .Params.license }}
+{{ $url := default .Site.Params.cc_license_url .Params.license_url }}
+{{ $notice := default .Site.Params.cc_license_notice .Params.license_notice }}
+{{ with $name }}
+<footer class="post-license">
+    <a class="post-license-badge" href="{{ $url }}" rel="license" target="_blank">[CC] {{ $name }}</a>
+    {{ with $notice }}
+        <span class="post-license-text">{{ . }}</span>
+    {{ end }}
+</footer>
+{{ end }}

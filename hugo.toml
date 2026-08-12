@@ -15,6 +15,14 @@ disableKinds = []
   project_reference = "@2023-09-06-03-55-21 The Polymod Framework"
   subtitle_line1 = "For the Solo, Early-Stage and Young Entrepreneurs."
   subtitle_line2 = "A modular support system for making progress under uncertain conditions."
+  # Post license footer (editable). Per-post override: `license`, `license_url`,
+  # `license_notice` in front matter. Set `license = ""` on a post to hide the footer.
+  cc_license_name = "CC BY-NC-ND 4.0"
+  cc_license_url = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+  cc_license_notice = "This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License."
+
+  # Site footer copyright line (editable). Empty = the default All Rights Reserved line.
+  copyright_line = ""
   brand_mark = """
            *
           / \\
