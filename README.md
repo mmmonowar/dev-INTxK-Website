@@ -31,6 +31,7 @@ Publishing model: **push to `main` → auto-build → auto-deploy.** No build se
 .
 ├── .github/workflows/hugo.yml   # CI/CD: builds & deploys on every push to main
 ├── assets/css/main.css          # all styling (terminal theme, posts, nav)
+├── assets/js/hero-typing.js     # hero typed-text cursor animation
 ├── content/
 │   ├── _index.md                # home page front matter (title only)
 │   ├── posts/                   # BLOG: one folder per post
@@ -221,6 +222,7 @@ Per-post front matter overrides: `cite: false` to hide the box, `cite_author` fo
 - A compact nav strip (`~ home posts`) appears at the top of every page; the active page is highlighted.
 - Posts render in a wrapped, readable column that stays centered on wide screens and collapses on mobile.
 - Everything uses the site's terminal aesthetic (monospace, bracket styles) defined in `assets/css/main.css`.
+- The hero terminal types the site's taglines character-by-character with a blinking block cursor. Which sentences are typed, and how fast, is set via `[params] hero_cursor_*` in `hugo.toml` (see [Configuration](#configuration)).
 
 There is a sample post at `content/posts/2026-08-03-07-30-00 hello-polymod/` — useful as a reference, and safe to delete whenever you want.
 
@@ -253,6 +255,10 @@ Site-wide settings live in `hugo.toml`:
 | `[params] author`      | Author name (shown in page footers/metadata).    |
 | `[params] company`     | Company name.                                    |
 | `[params] subtitle_line1` / `subtitle_line2` | Hero taglines on the homepage.      |
+| `[params] hero_cursor_lines` | Sentences typed one-by-one in the hero terminal (each item is typed character-by-character, then erased before the next). Sensible UX: 2–5 lines of 20–80 chars. |
+| `[params] hero_cursor_lines_animation_speed` | Seconds per character typed (e.g. `0.05` = 50ms/char). Sensible UX: 0.03–0.08 (snappy) to 0.1–0.15 (deliberate). |
+| `[params] hero_cursor_between_lines_animation_speed` | Pause in seconds between finishing one line and typing the next. Sensible UX: 0.5–1.5 (steady) to 2–3 (dramatic). |
+| `[params] hero_cursor_cycle_pause` | Extra pause in seconds after a full pass through all lines before the loop restarts. Sensible UX: 1–3 (steady) to 4–6 (dramatic). Defaults to `hero_cursor_between_lines_animation_speed` when unset. |
 | `[params] brand_mark`  | ASCII brand mark rendered in the hero.           |
 | `[params] cc_license_name` | Default Creative Commons license name shown under each post. |
 | `[params] cc_license_url` | Link for the post license badge.                |
