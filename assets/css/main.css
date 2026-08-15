@@ -178,9 +178,27 @@ a:hover { opacity: 0.8; }
   color: var(--poly-ink3);
 }
 .hero-copy .terminal-cursor {
-  margin-top: 1.75rem;
   height: 1.35em;
   width: 0.65em;
+}
+.hero-typed {
+  margin-top: 1.75rem;
+  min-height: 1.4em;
+  font-size: clamp(0.875rem, 1.6vw, 1.05rem);
+  line-height: 1.55;
+  color: var(--poly-ink2);
+}
+.hero-typed-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 34rem;
+}
+.hero-typed .terminal-cursor {
+  display: inline-block;
+  width: 0.65em;
+  height: 1.35em;
+  margin-left: 0;
+  vertical-align: -0.2em;
 }
 
 @media (max-width: 768px) {
@@ -198,6 +216,7 @@ a:hover { opacity: 0.8; }
     align-items: center;
   }
   .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-typed-line { text-align: center; }
 }
 
 /* ===== Content typography (markdown sections) ===== */

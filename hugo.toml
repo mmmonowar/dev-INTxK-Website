@@ -15,6 +15,20 @@ disableKinds = []
   project_reference = "@2023-09-06-03-55-21 The Polymod Framework"
   subtitle_line1 = "For the Solo, Early-Stage and Young Entrepreneurs."
   subtitle_line2 = "A modular support system for making progress under uncertain conditions."
+  # Hero cursor typed-animation lines. Each item is a sentence typed character-by-character.
+  # Sensible UX: 2-5 lines, each 20-80 characters for readability.
+  hero_cursor_lines = [
+    "Writing is thinking.",
+    "Thinking is work.",
+    ""
+  ]
+  # Seconds per character typed. Sensible UX: 0.03-0.08 (snappy) to 0.1-0.15 (deliberate).
+  hero_cursor_lines_animation_speed = 0.05
+  # Pause in seconds between finishing one line and typing the next. Sensible UX: 0.5-1.5 (steady) to 2-3 (dramatic).
+  hero_cursor_between_lines_animation_speed = 3.0
+  # Extra pause in seconds after one full pass through all lines, before the loop restarts.
+  # Sensible UX: 1-3 (steady) to 4-6 (dramatic). Defaults to hero_cursor_between_lines_animation_speed when unset.
+  hero_cursor_cycle_pause = 6.0
   # Post license footer (editable). Per-post override: `license`, `license_url`,
   # `license_notice` in front matter. Set `license = ""` on a post to hide the footer.
   cc_license_name = "CC BY-NC-ND 4.0"

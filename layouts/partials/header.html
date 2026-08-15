@@ -1,4 +1,8 @@
-<header class="hero">
+<header class="hero"
+        data-cursor-lines='{{ .Site.Params.hero_cursor_lines | jsonify }}'
+        data-cursor-speed="{{ .Site.Params.hero_cursor_lines_animation_speed }}"
+        data-cursor-between="{{ .Site.Params.hero_cursor_between_lines_animation_speed }}"
+        data-cursor-cycle="{{ .Site.Params.hero_cursor_cycle_pause }}">
     <div class="terminal hero-terminal">
         <div class="terminal-bar">
             <span class="terminal-dots" aria-hidden="true">
@@ -15,9 +19,11 @@
                     <h1 class="hero-title">{{ .Site.Title }}</h1>
                     <p class="hero-sub hero-sub--1">{{ .Site.Params.subtitle_line1 }}</p>
                     <p class="hero-sub hero-sub--2">{{ .Site.Params.subtitle_line2 }}</p>
-                    <span class="terminal-cursor" aria-hidden="true"></span>
+                    <div class="hero-typed" aria-live="polite"><span class="hero-typed-line" role="status"></span><span class="terminal-cursor" aria-hidden="true"></span></div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+{{ $typingJs := resources.Get "js/hero-typing.js" | js.Build | minify | fingerprint }}
+<script src="{{ $typingJs.Permalink }}"></script>
