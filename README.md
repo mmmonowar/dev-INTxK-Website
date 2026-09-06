@@ -286,3 +286,11 @@ Deployment is handled entirely by `.github/workflows/hugo.yml`, which runs on ev
 Track a run with `gh run watch`, or watch it live under **Actions → "Deploy Hugo site to Pages"**. The deployment environment URL is set from the workflow and displayed on the Actions page.
 
 **To move the site to another repository or domain:** update `baseURL` in `hugo.toml`, and in GitHub enable Pages (**Settings → Pages → Build and deployment → GitHub Actions**).
+
+
+---
+
+## License & Copyright
+
+- **Code & Layouts:** The underlying Hugo templates, layouts, and site code are released under the [MIT License](LICENSE).
+- **Written Content & Images:** All blog posts, articles, personal essays, and images in the `content/` and `static/` directories are original work and are copyrighted under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) (or: *All Rights Reserved*), unless otherwise specified.
