@@ -292,5 +292,5 @@ Track a run with `gh run watch`, or watch it live under **Actions → "Deploy Hu
 
 ## License & Copyright
 
-- **Code & Layouts:** The underlying Hugo templates, layouts, and site code are released under the [MIT License](LICENSE).
+- **Code & Layouts:** The underlying Hugo templates, layouts, and site code are released under the [MIT License](https://github.com/mmmonowar/dev-INTxK-Website/blob/bad188d78ded2c3e4e1b2c7b1a506c341bd31187/LICENSE).
 - **Written Content & Images:** All blog posts, articles, personal essays, and images in the `content/` and `static/` directories are original work and are copyrighted under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) (or: *All Rights Reserved*), unless otherwise specified.
