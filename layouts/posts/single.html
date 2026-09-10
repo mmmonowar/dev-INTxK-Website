@@ -13,6 +13,7 @@
                 <h1 class="post-title">{{ .Title }}</h1>
                 <div class="post-meta">
                     <time class="post-date" datetime="{{ substr .Params.node 0 10 }}">{{ substr .Params.node 0 10 }}</time>
+                    <span class="post-reading-time">~{{ math.Ceil (math.Div .WordCount (site.Params.reading_time_words_per_minute | default 238)) }} min read</span>
                     {{ with .Params.tags }}
                         <span class="post-tags">
                             {{ range . }}

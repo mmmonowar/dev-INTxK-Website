@@ -35,6 +35,9 @@ disableKinds = []
   cc_license_url = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
   cc_license_notice = "This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License."
 
+  # Reading time calculation. Words per minute for estimated reading time.
+  reading_time_words_per_minute = 238
+
   # Site footer copyright line (editable). Empty = the default All Rights Reserved line.
   copyright_line = ""
   brand_mark = """

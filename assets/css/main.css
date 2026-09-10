@@ -307,6 +307,7 @@ a:hover { opacity: 0.8; }
 .post-row-title { color: var(--poly-ink1); font-weight: 600; flex: 1; }
 .post-row-title:hover { color: var(--poly-crimson); }
 .post-row-date { color: var(--poly-ink3); font-size: 0.8rem; white-space: nowrap; }
+.post-row-reading-time { color: var(--poly-ink3); font-size: 0.72rem; white-space: nowrap; letter-spacing: 0.04em; }
 .post-empty { color: var(--poly-ink3); }
 
 /* ===== Post single ===== */
@@ -332,6 +333,7 @@ a:hover { opacity: 0.8; }
   color: var(--poly-ink3);
 }
 .post-date { letter-spacing: 0.08em; }
+.post-reading-time { letter-spacing: 0.06em; }
 .post-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag-chip {
   display: inline-block;

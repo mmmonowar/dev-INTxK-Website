@@ -8,6 +8,7 @@
                     <li class="post-row">
                         <span class="post-index-no">{{ printf "%02d" (add $i 1) }}</span>
                         <a class="post-row-title" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+                        <span class="post-row-reading-time">~{{ math.Ceil (math.Div $p.WordCount (site.Params.reading_time_words_per_minute | default 238)) }} min read</span>
                         <time class="post-row-date" datetime="{{ substr $p.Params.node 0 10 }}">{{ substr $p.Params.node 0 10 }}</time>
                     </li>
                 {{ end }}
