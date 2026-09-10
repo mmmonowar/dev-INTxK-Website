@@ -1,6 +1,7 @@
 baseURL = 'https://the-polymod-framework.intxk.com/'
 relativeURLs = true
 canonifyURLs = false
+enableGitInfo = true
 title = "The Polymod Framework"
 locale = "en-US"
 theme = []

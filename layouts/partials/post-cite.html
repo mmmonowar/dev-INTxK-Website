@@ -1,5 +1,5 @@
 {{ $node := .Params.node }}
-{{ $citeAuthor := default .Site.Params.author .Params.cite_author }}
+{{ $citeAuthor := default .Site.Params.author (.Params.cite_author | default .Params.author) }}
 {{ $title := .Title }}
 {{ $site := default .Site.Title .Site.Params.citation.site_name }}
 {{ $url := printf "%s%s" (strings.TrimSuffix "/" .Site.BaseURL) .RelPermalink }}
@@ -14,7 +14,7 @@
     {{ $apaAuthor = printf "%s, %s" (index $parts (sub (len $parts) 1)) (strings.TrimSuffix " " $initials) }}
 {{ end }}
 {{ if and $node $title $apaAuthor }}
-{{ $date := time (substr $node 0 10) }}
+{{ $date := time (.Params.created | default (substr $node 0 10)) }}
 {{ $key := default "" .Params.cite_key }}
 {{ if not $key }}
     {{ $parts := split $citeAuthor " " }}

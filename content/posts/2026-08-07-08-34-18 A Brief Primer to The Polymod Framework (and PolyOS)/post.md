@@ -1,6 +1,8 @@
 ---
 title: "A Brief Primer to The Polymod Framework (and PolyOS)"
 node: "2026-08-07-08-34-18"
+author: "Muhammad Mustafa Monowar"
+created: "2026-08-07"
 tags:
   - blog
 summary: "This post briefly introduces readers to the Polymod Framework and PolyOS. I share how I discovered my passion for systematic work—a quality I believe is essential for entrepreneurs. I also share key use cases and features to introduce the methodology and its benefits. Finally, I make the case for why solopreneurs, as well as young and early-stage entrepreneurs, might benefit from trying the Polymod Framework and PolyOS."

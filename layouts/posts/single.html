@@ -11,19 +11,44 @@
         <div class="post-single-body">
             <header class="post-header">
                 <h1 class="post-title">{{ .Title }}</h1>
-                <div class="post-meta">
-                    <time class="post-date" datetime="{{ substr .Params.node 0 10 }}">{{ substr .Params.node 0 10 }}</time>
-                    <span class="post-reading-time">~{{ math.Ceil (math.Div .WordCount (site.Params.reading_time_words_per_minute | default 238)) }} min read</span>
+                <div class="post-meta-sections">
+                    <div class="post-meta-row">
+                        <span class="post-meta-label">&gt; author</span>
+                        <span class="post-meta-value">{{ .Params.author | default .Site.Params.author }}</span>
+                    </div>
+                    <div class="post-meta-row">
+                        <span class="post-meta-label">&gt; created</span>
+                        <time class="post-meta-value" datetime="{{ .Params.created }}">{{ .Params.created }}</time>
+                    </div>
+                    {{ with .GitInfo }}
+                        {{ $updated := .AuthorDate.Format "2006-01-02" }}
+                        {{ if ne $updated $.Params.created }}
+                        <div class="post-meta-row">
+                            <span class="post-meta-label">&gt; updated</span>
+                            <time class="post-meta-value" datetime="{{ $updated }}">{{ $updated }}</time>
+                        </div>
+                        {{ end }}
+                    {{ end }}
                     {{ with .Params.tags }}
-                        <span class="post-tags">
+                    <div class="post-meta-row">
+                        <span class="post-meta-label">&gt; tags</span>
+                        <span class="post-meta-tags">
                             {{ range . }}
                                 <a class="tag-chip" href="{{ . | urlize | printf "/tags/%s/" | relURL }}">{{ . }}</a>
                             {{ end }}
                         </span>
+                    </div>
                     {{ end }}
+                    <div class="post-meta-row">
+                        <span class="post-meta-label">&gt; reading</span>
+                        <span class="post-meta-value">~{{ math.Ceil (math.Div .WordCount (site.Params.reading_time_words_per_minute | default 238)) }} min read</span>
+                    </div>
                 </div>
                 {{ with .Params.summary }}
-                    <p class="post-summary">{{ . }}</p>
+                <div class="post-summary-section">
+                    <span class="post-summary-label">summary</span>
+                    <p class="post-summary-text">{{ . }}</p>
+                </div>
                 {{ end }}
             </header>
             <div class="content post-body">

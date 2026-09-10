@@ -1,6 +1,8 @@
 ---
 title: "Welcome to The Polymod Framework Blog"
 node: "2026-08-03-07-30-00"
+author: "Muhammad Mustafa Monowar"
+created: "2026-08-03"
 tags:
   - meta
   - hello
